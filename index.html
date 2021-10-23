@@ -8,10 +8,16 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>  
 
     <script>
+
+console.log('in script');
+	    
 google.charts.load('current');
 google.charts.setOnLoadCallback(init);
 
 function init() {
+
+  console.log('in init');	
+	
   var url =
     'https://docs.google.com/spreadsheets/d/1YpiTo7Fc3QvBdbuReCIcwtg7lnmZupQAH57phrDLotI/edit#gid=0';
   var query = new google.visualization.Query(url);
