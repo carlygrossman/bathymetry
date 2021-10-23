@@ -6,6 +6,43 @@
 	  
     <!-- gstatic chart loader -->
     <script src="https://www.gstatic.com/charts/loader.js"></script>  
+    <script>
+d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+
+var z_data=[ ]
+for(i=0;i<24;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+
+var data = [{
+           z: z_data,
+           type: 'surface'
+        }];
+
+var layout = {
+  title: 'Map of Sea Floor',
+  autosize: true,
+  width: 750,
+  height: 750,
+  margin: {
+    l: 65,
+    r: 50,
+    b: 65,
+    t: 90,
+  }
+};
+Plotly.newPlot('myDiv', data, layout);
+});
+    
+    </script>
+  </head>
+
+  <body>
+  	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 
     <script>
 
@@ -44,44 +81,6 @@ function processSheetsData(response) {
   console.log("Sheet Data");
   console.log(array);
 }	    
-    </script>
-	  
-    <script>
-d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
-function unpack(rows, key) {
-  return rows.map(function(row) { return row[key]; });
-}
-
-var z_data=[ ]
-for(i=0;i<24;i++)
-{
-  z_data.push(unpack(rows,i));
-}
-
-var data = [{
-           z: z_data,
-           type: 'surface'
-        }];
-
-var layout = {
-  title: 'Map of Sea Floor',
-  autosize: true,
-  width: 750,
-  height: 750,
-  margin: {
-    l: 65,
-    r: 50,
-    b: 65,
-    t: 90,
-  }
-};
-Plotly.newPlot('myDiv', data, layout);
-});
-    
-    </script>
-  </head>
-
-  <body>
-  	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    </script>	  
   </body>
 </html>
