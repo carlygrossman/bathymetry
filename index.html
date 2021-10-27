@@ -7,43 +7,43 @@
     <!-- gstatic chart loader -->
     <script src="https://www.gstatic.com/charts/loader.js"></script>  
     <script>
-d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
-function unpack(rows, key) {
-  return rows.map(function(row) { return row[key]; });
-}
+// d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
+// function unpack(rows, key) {
+//   return rows.map(function(row) { return row[key]; });
+// }
 
-var z_data=[ ]
-for(i=0;i<24;i++)
-{
-  z_data.push(unpack(rows,i));
-}
-console.log("z_data");
-console.log(z_data);
-var data = [{
-           z: z_data,
-           type: 'surface'
-        }];
+// var z_data=[ ]
+// for(i=0;i<24;i++)
+// {
+//   z_data.push(unpack(rows,i));
+// }
+// console.log("z_data");
+// console.log(z_data);
+// var data = [{
+//            z: z_data,
+//            type: 'surface'
+//         }];
 
-var layout = {
-  title: 'Map of Sea Floor',
-  autosize: true,
-  width: 750,
-  height: 750,
-  margin: {
-    l: 65,
-    r: 50,
-    b: 65,
-    t: 90,
-  }
-};
-Plotly.newPlot('myDiv', data, layout);
-});
+// var layout = {
+//   title: 'Map of Sea Floor',
+//   autosize: true,
+//   width: 750,
+//   height: 750,
+//   margin: {
+//     l: 65,
+//     r: 50,
+//     b: 65,
+//     t: 90,
+//   }
+// };
+// Plotly.newPlot('surfacePlot', data, layout);
+// });
     
     </script>
   </head>
 
   <body>
-  	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+  	<div id='surfacePlot'><!-- Plotly chart will be drawn inside this DIV --></div>
 
     <script>
 
@@ -51,30 +51,48 @@ google.charts.load('current');
 google.charts.setOnLoadCallback(init);
 
 function init() {
-
-  var url =
-    'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
-  var query = new google.visualization.Query(url);
-  console.log(query);
-  query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
-  query.send(processSheetsData);
+	var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
+	var query = new google.visualization.Query(url);
+	console.log(query);
+	query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
+	query.send(processSheetsData);
 }
 	    
 function processSheetsData(response) {
-  var array = [];
-  var data = response.getDataTable();
-  var columns = data.getNumberOfColumns();
-  var rows = data.getNumberOfRows();
-  for (var c = 0; c < columns; c++) {
-    var col = [];
-    for (var r = 0; r < rows; r++) {
-      col.push(data.getFormattedValue(r, c));
-    }
-    array.push(col);
-  }
-  alert(array);
-  console.log(array);
-}	    
+	var z_data = [];
+	var data = response.getDataTable();
+	var columns = data.getNumberOfColumns();
+	var rows = data.getNumberOfRows();
+	for (var c = 0; c < columns; c++) {
+		var col = [];
+		for (var r = 0; r < rows; r++) {
+			col.push(data.getFormattedValue(r, c));
+		}
+		z_data.push(col);
+	}
+
+	alert(z_data);
+	console.log(z_data);
+
+	var data = [{
+		z: z_data,
+		type: 'surface'
+	}];
+
+	var layout = {
+		title: 'Map of Sea Floor',
+		autosize: true,
+		width: 750,
+		height: 750,
+		margin: {
+		l: 65,
+		r: 50,
+		b: 65,
+		t: 90,
+	}
+		
+	Plotly.newPlot('surfacePlot', data, layout);
+}
     </script>	  
   </body>
 </html>
