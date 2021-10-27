@@ -71,12 +71,8 @@ function processSheetsData(response) {
       row.push(data.getFormattedValue(r, c));
       console.log("row: " + r + " -- col:" + c + " -- val:" + data.getFormattedValue(r, c));
     }
-    array.push({
-      name: row[0],
-      value: +row[1],
-    });
+    array.push(row);
   }
-  // renderData(array);
   alert(array);
   console.log(array);
 }	    
