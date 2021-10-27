@@ -6,46 +6,12 @@
 	  
     <!-- gstatic chart loader -->
     <script src="https://www.gstatic.com/charts/loader.js"></script>  
-    <script>
-// d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
-// function unpack(rows, key) {
-//   return rows.map(function(row) { return row[key]; });
-// }
-
-// var z_data=[ ]
-// for(i=0;i<24;i++)
-// {
-//   z_data.push(unpack(rows,i));
-// }
-// console.log("z_data");
-// console.log(z_data);
-// var data = [{
-//            z: z_data,
-//            type: 'surface'
-//         }];
-
-// var layout = {
-//   title: 'Map of Sea Floor',
-//   autosize: true,
-//   width: 750,
-//   height: 750,
-//   margin: {
-//     l: 65,
-//     r: 50,
-//     b: 65,
-//     t: 90,
-//   }
-// };
-// Plotly.newPlot('surfacePlot', data, layout);
-// });
-    
-    </script>
   </head>
 
   <body>
-  	<div id='surfacePlot'><!-- Plotly chart will be drawn inside this DIV --></div>
-
-    <script>
+	<div><a href="https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/copy">Data entry template</a></div>
+	<div id='surfacePlot'><!-- Plotly chart will be drawn inside this DIV --></div>
+	<script>
 
 google.charts.load('current');
 google.charts.setOnLoadCallback(init);
