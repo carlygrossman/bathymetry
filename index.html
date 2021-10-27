@@ -68,7 +68,7 @@ function processSheetsData(response) {
   for (var c = 0; c < columns; c++) {
     var col = [];
     for (var r = 0; r < rows; r++) {
-      row.push(data.getFormattedValue(r, c));
+      col.push(data.getFormattedValue(r, c));
     }
     array.push(col);
   }
