@@ -65,13 +65,12 @@ function processSheetsData(response) {
   var data = response.getDataTable();
   var columns = data.getNumberOfColumns();
   var rows = data.getNumberOfRows();
-  for (var r = 0; r < rows; r++) {
-    var row = [];
-    for (var c = 0; c < columns; c++) {
+  for (var c = 0; c < columns; c++) {
+    var col = [];
+    for (var r = 0; r < rows; r++) {
       row.push(data.getFormattedValue(r, c));
-      console.log("row: " + r + " -- col:" + c + " -- val:" + data.getFormattedValue(r, c));
     }
-    array.push(row);
+    array.push(col);
   }
   alert(array);
   console.log(array);
