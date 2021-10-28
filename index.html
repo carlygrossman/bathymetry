@@ -60,8 +60,7 @@ function processSheetsData(response) {
 			// check if value is not a number
 			var rowValue = r + 1;
 			var formattedValue = data.getFormattedValue(r, c);
-			console.log(typeof(formattedValue));
-			if (Number.isNaN(formattedValue)) {
+			if (Number.isNaN(parseFloat(formattedValue))) {
 				alert("Value: " + formattedValue + " at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
 				return false;
 			} else {
