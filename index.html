@@ -64,6 +64,8 @@ function processSheetsData(response) {
 				return false;
 			} else {
 				col.push(data.getFormattedValue(r, c));
+				alert("Value: " + data.getFormattedValue(r, c) + " at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
+				return false;
 			}
 		}
 		z_data.push(col);
