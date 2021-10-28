@@ -11,6 +11,10 @@
   <body>
 	<div>
 		<div><a href="https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/copy" target="_blank">Data entry template</a></div>
+		<div>
+			<label for="spreadsheetURL">Spreadsheet URL:</label>
+			<input type="url" id="spreadsheetURL" name="spreadsheetURL">
+		</div>
 		<div><button onclick="generateGraph()">Generate Graph</button></div>
 	</div>
 	<div id='surfacePlot'><!-- Plotly chart will be drawn inside this DIV --></div>
@@ -22,8 +26,13 @@ google.charts.setOnLoadCallback(init);
 function init() {
 }
 		
-function generateGraph() {		
- 	var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
+function generateGraph() {
+
+	// var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
+
+	
+	// get spreadsheetURL from text field
+	var url = document.getElementById('spreadsheetURL').value;
 
 	var query = new google.visualization.Query(url);
 	console.log(query);
