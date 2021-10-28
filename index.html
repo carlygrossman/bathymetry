@@ -61,7 +61,7 @@ function processSheetsData(response) {
 			var rowValue = r + 1;
 			var formattedValue = data.getFormattedValue(r, c);
 			if (Number.isNaN(parseFloat(formattedValue))) {
-				alert("Value: " + formattedValue + " at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
+				alert("Value at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
 				return false;
 			} else {
 				col.push(formattedValue);
