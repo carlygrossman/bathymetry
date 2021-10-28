@@ -40,13 +40,11 @@ function generateGraph() {
 	try {
 		testURL = new URL(url);
 	} catch (_) {
-		alert("Invalid URL");
+		alert(url + " is not a valid URL");
 		return false;  
 	}	
 	
-	
 	var query = new google.visualization.Query(url);
-	console.log(query);
 	query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
 	query.send(processSheetsData);
 }
@@ -59,7 +57,14 @@ function processSheetsData(response) {
 	for (var c = 0; c < columns; c++) {
 		var col = [];
 		for (var r = 0; r < rows; r++) {
-			col.push(data.getFormattedValue(r, c));
+			// check if value is not a number
+			rowValue = r + 1;
+			if isNaN(getFormattedValue(r, c)) {
+				alert("Value: " + data.getFormattedValue(r, c) + " at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
+				return false;
+			} else {
+				col.push(data.getFormattedValue(r, c));
+			}
 		}
 		z_data.push(col);
 	}
