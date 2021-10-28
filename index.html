@@ -34,6 +34,17 @@ function generateGraph() {
 	// get spreadsheetURL from text field
 	var url = document.getElementById('spreadsheetURL').value;
 
+	// validate URL
+  	let testURL;
+  
+	try {
+		testURL = new URL(url);
+	} catch (_) {
+		alert("Invalid URL");
+		return false;  
+	}	
+	
+	
 	var query = new google.visualization.Query(url);
 	console.log(query);
 	query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
