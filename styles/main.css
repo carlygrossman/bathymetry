@@ -10,3 +10,8 @@ body {
 .center {
 	text-align: center;
 }
+
+#surfacePlot {
+	width: 750px;
+	margin: 0 auto;
+}
