@@ -26,7 +26,7 @@ function generateGraph() {
 	try {
 		testURL = new URL(url);
 	} catch (_) {
-		errorDiv.innerHTML = url + " is not a valid URL";
+		errorDiv.innerHTML = "'" + url + "' is not a valid URL";
 		return false;  
 	}	
 		
