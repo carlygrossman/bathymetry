@@ -12,9 +12,12 @@ function init() {
 		
 function generateGraph() {
 
-	// var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
+	// clear error message
+	errorDiv.innerHTML = "";
+
 	
 	// get spreadsheetURL from text field
+	// var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
 	var url = document.getElementById('spreadsheetURL').value;
 
 	// validate URL
