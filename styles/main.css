@@ -54,6 +54,10 @@ a:active {
 	color: #802104;
 }
 
+#spreadsheetURL {
+	width: 250px;
+}
+
 #generateGraphButton {
 	margin-top: 40px;
 }
