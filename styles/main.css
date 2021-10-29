@@ -3,6 +3,33 @@ body {
 	font-family: 'Zen Kaku Gothic New', sans-serif;
 }
 
+a:link {
+	color: #5164ad;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #5164ad;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #802104;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:active {
+	color: #802104;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+
+
+
 #wrapper {
 	width: 1000px; 
 	margin: 0 auto;
