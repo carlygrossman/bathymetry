@@ -30,6 +30,8 @@ function generateGraph() {
 
 	// var url = 'https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/edit#gid=0';
 
+	// set defaultErrorMessage
+	var defaultErrorMessage = "Oopsies! Looks like there was a problem with your data file. Did you check to make sure that Share setting are set to 'Anyone with the link'?";
 	
 	// get spreadsheetURL from text field
 	var url = document.getElementById('spreadsheetURL').value;
@@ -43,29 +45,27 @@ function generateGraph() {
 		alert(url + " is not a valid URL");
 		return false;  
 	}	
-	
-	
+		
 	try {
 		var query = new google.visualization.Query(url);
+		query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
+		query.send(processSheetsData);
 	} catch (error) {
-		console.error(error);
-		alert("Query");
+		alert(defaultErrorMessage);
 	}
 	
-	try {
-		query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
-	} catch (error) {
-		console.error(error);
-		alert("setQuery");
-	}
-	query.send(processSheetsData);
 }
 	    
 function processSheetsData(response) {
 	var z_data = [];
-	var data = response.getDataTable();
-	var columns = data.getNumberOfColumns();
-	var rows = data.getNumberOfRows();
+
+	try {
+		var data = response.getDataTable();
+		var columns = data.getNumberOfColumns();
+		var rows = data.getNumberOfRows();
+	} catch (error) {
+		alert(defaultErrorMessage);
+	}	
 	for (var c = 0; c < columns; c++) {
 		var col = [];
 		for (var r = 0; r < rows; r++) {
