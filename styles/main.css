@@ -1,4 +1,4 @@
-body {
-       display:flex; flex-direction:column; justify-content:center;
-       min-height:100vh;
+#wrapper {
+	width: 960px; 
+	margin: 0 auto;
 }
