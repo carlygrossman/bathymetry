@@ -73,7 +73,7 @@ function processSheetsData(response) {
 	}];
 
 	var layout = {
-		title: 'Map of Sea Floor',
+		title: '',
 		autosize: true,
 		width: 750,
 		height: 750,
