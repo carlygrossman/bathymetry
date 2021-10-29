@@ -16,3 +16,7 @@ body {
 	width: 750px;
 	margin: 0 auto;
 }
+
+#errorMessage {
+	color: #802104;
+}
