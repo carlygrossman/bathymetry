@@ -49,12 +49,14 @@ function generateGraph() {
 		var query = new google.visualization.Query(url);
 	} catch (error) {
 		console.error(error);
+		alert("Query");
 	}
 	
 	try {
 		query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
 	} catch (error) {
 		console.error(error);
+		alert("setQuery");
 	}
 	query.send(processSheetsData);
 }
