@@ -11,6 +11,7 @@
   <body>
 	<div>
 		<div><a href="https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/copy" target="_blank">Data entry template</a></div>
+		<div id="errorMessage"></div>
 		<div>
 			<label for="spreadsheetURL">Spreadsheet URL:</label>
 			<input type="url" id="spreadsheetURL" name="spreadsheetURL">
@@ -25,6 +26,7 @@ google.charts.setOnLoadCallback(init);
 
 // set defaultErrorMessage
 var defaultErrorMessage = "Oopsies! Looks like there was a problem with your data file. Did you check to make sure that Share setting are set to 'Anyone with the link'?";
+var errorDiv = document.getElementById('errorMessage');
 
 		
 function init() {
@@ -43,7 +45,7 @@ function generateGraph() {
 	try {
 		testURL = new URL(url);
 	} catch (_) {
-		alert(url + " is not a valid URL");
+		errorDiv.innerHTML = url + " is not a valid URL";
 		return false;  
 	}	
 		
@@ -52,7 +54,8 @@ function generateGraph() {
 		query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
 		query.send(processSheetsData);
 	} catch (error) {
-		alert(defaultErrorMessage);
+		errorDiv.innerHTML = defaultErrorMessage;
+		return false;
 	}
 	
 }
@@ -65,7 +68,8 @@ function processSheetsData(response) {
 		var columns = data.getNumberOfColumns();
 		var rows = data.getNumberOfRows();
 	} catch (error) {
-		alert(defaultErrorMessage);
+		errorDiv.innerHTML = defaultErrorMessage;
+		return false;
 	}	
 	for (var c = 0; c < columns; c++) {
 		var col = [];
@@ -74,7 +78,7 @@ function processSheetsData(response) {
 			var rowValue = r + 1;
 			var formattedValue = data.getFormattedValue(r, c);
 			if (Number.isNaN(parseFloat(formattedValue))) {
-				alert("Value at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.")
+				errorDiv.innerHTML = "Value at " + String.fromCharCode(65 + c) + ":" + rowValue.toString() + " is not a number.";
 				return false;
 			} else {
 				col.push(formattedValue);
