@@ -1,3 +1,7 @@
+body {
+	background-color: #d3e2e8;
+}
+
 #wrapper {
 	width: 960px; 
 	margin: 0 auto;
