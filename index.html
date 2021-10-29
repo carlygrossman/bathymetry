@@ -44,8 +44,18 @@ function generateGraph() {
 		return false;  
 	}	
 	
-	var query = new google.visualization.Query(url);
-	query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
+	
+	try {
+		var query = new google.visualization.Query(url);
+	} catch (error) {
+		console.error(error);
+	}
+	
+	try {
+		query.setQuery('select B,C,D,E,F,G,H,I,J,K,L,M,N');
+	} catch (error) {
+		console.error(error);
+	}
 	query.send(processSheetsData);
 }
 	    
