@@ -14,15 +14,15 @@
   </head>
 
   <body>
-	<div id="wrapper">
-		<div><a href="https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/copy" target="_blank">Data entry template</a></div>
-		<div id="errorMessage"></div>
-		<div>
+	<div id="wrapper" class="center">
+		<div class="center"><a href="https://docs.google.com/spreadsheets/d/19pvUkYDkw19fO9hlgHlSsrQgzzli8aNLkJo0A3EW51E/copy" target="_blank">Data entry template</a></div>
+		<div id="errorMessage" class="center"></div>
+		<div class="center">
 			<label for="spreadsheetURL">Spreadsheet URL:</label>
 			<input type="url" id="spreadsheetURL" name="spreadsheetURL">
 		</div>
-		<div><button onclick="generateGraph()">Generate Graph</button></div>
-		<div id='surfacePlot'><!-- Plotly chart will be drawn inside this DIV --></div>
+		<div class="center"><button onclick="generateGraph()">Generate Graph</button></div>
+		<div id='surfacePlot' class="center"><!-- Plotly chart will be drawn inside this DIV --></div>
 	</div>
 	<script src='scripts/main.js'></script>  
   </body>
