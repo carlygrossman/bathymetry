@@ -1,5 +1,6 @@
 body {
 	background-image: url("../images/wavebanner.svg");
+	background-repeat: no-repeat;
 	background-color: #f2faff;
 	font-family: 'Zen Kaku Gothic New', sans-serif;
 }
