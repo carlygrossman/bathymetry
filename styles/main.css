@@ -6,13 +6,13 @@ body {
 }
 
 a:link {
-	color: #5164ad;
+	color: #1c75ad;
 	background-color: transparent;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #5164ad;
+	color: #1c75ad;
 	background-color: transparent;
 	text-decoration: none;
 }
@@ -65,7 +65,7 @@ a:active {
 }
 
 .button {
-  background-color: #5164ad;
+  background-color: #1c75ad;
   border: none;
   color: white;
   padding: 15px 32px;
